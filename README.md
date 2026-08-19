@@ -1,4 +1,4 @@
-# MStroy Frontend — TreeStore
+# MStroy Frontend: TreeStore
 
 Тестовое задание для Frontend-разработчика: индексированное древовидное хранилище и его представление в таблице AG Grid Enterprise на Vue 3.
 
@@ -44,14 +44,14 @@ const store = new TreeStore<Item>(items)
 
 Поддерживаемые методы:
 
-- `getAll()` — все элементы в исходном порядке;
-- `getItem(id)` — элемент по идентификатору;
-- `getChildren(id)` — прямые дочерние элементы;
-- `getAllChildren(id)` — все потомки в DFS pre-order;
-- `getAllParents(id)` — путь от самого элемента до корня;
-- `addItem(item)` — добавление элемента;
-- `removeItem(id)` — удаление элемента и поддерева;
-- `updateItem(item)` — обновление полей и родителя элемента.
+- `getAll()`: все элементы в исходном порядке
+- `getItem(id)`: элемент по идентификатору
+- `getChildren(id)`: прямые дочерние элементы
+- `getAllChildren(id)`: все потомки в DFS pre-order
+- `getAllParents(id)`: путь от самого элемента до корня
+- `addItem(item)`: добавление элемента
+- `removeItem(id)`: удаление элемента и поддерева
+- `updateItem(item)`: обновление полей и родителя элемента
 
 Идентификаторы `1` и `'1'` считаются разными. При изменении родителя сохраняется корректность дерева: отсутствующие родители и циклы отклоняются. Массивы, возвращаемые `getAll()` и `getChildren()`, являются индексированными представлениями хранилища и не должны изменяться вызывающим кодом.
 
@@ -63,8 +63,8 @@ const store = new TreeStore<Item>(items)
 | `getAll`         |     `O(1)` | Возврат текущего массива                                  |
 | `getItem`        |     `O(1)` | Поиск по `Map`                                            |
 | `getChildren`    |     `O(1)` | Доступ к готовому списку детей                            |
-| `getAllChildren` |     `O(d)` | `d` — количество потомков                                 |
-| `getAllParents`  |     `O(h)` | `h` — высота ветви                                        |
+| `getAllChildren` |     `O(d)` | `d` - количество потомков                                 |
+| `getAllParents`  |     `O(h)` | `h` - высота ветви                                        |
 | `addItem`        |     `O(1)` | Проверки и добавление в индексы                           |
 | `updateItem`     |     `O(1)` | При сохранении родителя; перенос зависит от числа соседей |
 | `removeItem`     | `O(n + d)` | Один проход для уплотнения общего массива                 |
@@ -81,14 +81,11 @@ AG Grid Enterprise разрешено запускать без лицензио
 
 ## Структура
 
-```text
-src/
-├── TreeStore.ts              # универсальный класс хранилища
-├── treeTableModel.ts         # преобразование дерева для AG Grid
-├── components/TreeTable.vue  # таблица
-├── data/items.ts             # данные из задания
-└── __tests__/                # unit- и компонентные тесты
-benchmarks/                   # отдельные benchmarks
-```
+- `src/TreeStore.ts`: класс хранилища
+- `src/treeTableModel.ts`: подготовка данных для AG Grid
+- `src/components/TreeTable.vue`: компонент таблицы
+- `src/data/items.ts`: данные из задания
+- `src/__tests__`: unit- и компонентные тесты
+- `benchmarks`: тесты производительности
 
 CI выполняет чистую установку, форматирование, lint, type-check, тесты с покрытием и production-сборку.
