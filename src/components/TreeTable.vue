@@ -3,8 +3,10 @@ import { computed } from 'vue'
 
 import { AgGridVue } from 'ag-grid-vue3'
 import {
+  CellStyleModule,
   ClientSideRowModelModule,
   ModuleRegistry,
+  RenderApiModule,
   enableDevValidations,
   themeQuartz,
   type ColDef,
@@ -20,7 +22,12 @@ import {
   type TreeGridRow,
 } from '@/treeTableModel'
 
-ModuleRegistry.registerModules([ClientSideRowModelModule, TreeDataModule])
+ModuleRegistry.registerModules([
+  ClientSideRowModelModule,
+  CellStyleModule,
+  RenderApiModule,
+  TreeDataModule,
+])
 
 if (import.meta.env.DEV) {
   enableDevValidations()

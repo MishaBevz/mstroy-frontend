@@ -73,7 +73,7 @@ const store = new TreeStore<Item>(items)
 
 ## Интерфейс
 
-`TreeTable.vue` использует официальный Enterprise-модуль Tree Data. Для уменьшения размера приложения регистрируются только `ClientSideRowModelModule` и `TreeDataModule`.
+`TreeTable.vue` использует официальный Enterprise-модуль Tree Data. Для уменьшения размера приложения регистрируются только необходимые `ClientSideRowModelModule`, `CellStyleModule`, `RenderApiModule` и `TreeDataModule`.
 
 Пути AG Grid строятся из типизированных ID (`n:` для чисел и `s:` для строк), поэтому смешанные идентификаторы остаются уникальными. Все группы изначально раскрыты; нумерация соответствует текущему порядку видимых строк и пересчитывается при раскрытии или сворачивании.
 
