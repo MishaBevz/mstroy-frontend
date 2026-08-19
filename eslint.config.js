@@ -8,8 +8,8 @@ export default tseslint.config(
     ignores: ['dist/**', 'coverage/**', 'node_modules/**'],
   },
   js.configs.recommended,
-  ...pluginVue.configs['flat/recommended'],
   ...tseslint.configs.recommended,
+  ...pluginVue.configs['flat/recommended'],
   {
     files: ['**/*.{ts,vue}'],
     languageOptions: {
@@ -27,6 +27,10 @@ export default tseslint.config(
         { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
       ],
       '@typescript-eslint/no-explicit-any': 'error',
+      'vue/max-attributes-per-line': [
+        'error',
+        { singleline: { max: 2 }, multiline: { max: 1 } },
+      ],
       'vue/multi-word-component-names': 'off',
     },
   },
